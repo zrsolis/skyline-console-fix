@@ -355,11 +355,11 @@ export class Login extends Component {
   getUsernameAndDomain = (values) => {
     const { usernameDomain } = values;
     const tmp = usernameDomain.trim().split('@');
-    user = tmp[0];
+    var user = tmp[0];
     if (tmp.length > 2) {
-      domain = tmp[1] + "@" + tmp[2];
+      var domain = tmp[1] + "@" + tmp[2];
     } else {
-      domain = tmp[1];
+      var domain = tmp[1];
     }
     return {
       username: user,
