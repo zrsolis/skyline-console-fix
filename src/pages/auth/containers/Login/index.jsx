@@ -356,7 +356,7 @@ export class Login extends Component {
     const { usernameDomain } = values;
     const tmp = usernameDomain.trim().split('@');
     user = tmp[0];
-    if (tmp.lenght > 2) {
+    if (tmp.length > 2) {
       domain = tmp[1] + "@" + tmp[2];
     } else {
       domain = tmp[1];
