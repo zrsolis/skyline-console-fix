@@ -354,10 +354,16 @@ export class Login extends Component {
 
   getUsernameAndDomain = (values) => {
     const { usernameDomain } = values;
-    const tmp = usernameDomain.trim().split('@', 1);
+    const tmp = usernameDomain.trim().split('@');
+    user = tmp[0];
+    if (tmp.lenght > 2) {
+      domain = tmp[1] + "@" + tmp[2];
+    } else {
+      domain = tmp[1];
+    }
     return {
-      username: tmp[0],
-      domain: tmp[1] || 'Default',
+      username: user,
+      domain: domain || 'Default',
     };
   };
 
@@ -367,7 +373,7 @@ export class Login extends Component {
         t('Please input <username> or <username>@<domain name>!')
       );
     }
-    const tmp = value.trim().split('@', 1);
+    const tmp = value.trim().split('@');
     const message = t(
       'Please input the correct format:  <username> or <username>@<domain name>.'
     );
